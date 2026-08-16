@@ -2,32 +2,33 @@
 
 > 不评判想法，只提炼真意。给每个创造者的想法，装上传播的翅膀。
 
-DLSkill 是一套面向自媒体内容创作的 AI 技能（Skill）：当你丢给它一个模糊的想法、一段 raw 素材、或一个想讲的观点，它会帮你挖出真正的「核」，匹配传播结构，翻译成有穿透力的语言。
+dlskill 是一套自媒体内容创作 AI 技能：丢给它一个模糊想法或 raw 素材，它帮你挖出真正的「核」，匹配传播结构，翻译成有穿透力的语言。
 
-- **类型**：Doubao / 豆包 Agent Skill
 - **版本**：v0.5（2026.08.10）
-- **适用**：短视频口播稿、朋友圈长文、公众号文章、卖课带货转化稿、IP 日更、人物故事/事件解读
+- **适用**：短视频口播、朋友圈长文、公众号、卖课带货转化稿、IP 日更、人物故事/事件解读
 
-## 核心理念
+## 一键安装（推荐）
 
-我们不创造内容，我们做**想法的翻译官和放大器**：
-
-1. 挖出你真正想说但没说出来的那个「核」
-2. 匹配最适合这个核的传播结构
-3. 用最有穿透力的语言讲出来，让同频的人听到
-
-## 包含什么
+在 WorkBuddy / Claude Code / Cursor / Codex 等支持 Skills 的 AI 工具里，直接发送：
 
 ```
-dlskill/
-├── SKILL.md                    核心流程 + 框架选择（6步法）
-└── references/
-    ├── frameworks.md           四大框架详解
-    ├── language.md             语言手册（五查/三开关/反黑话/替换表）
-    └── checklist.md            成稿质量检查清单
+npx -y skills add 你的用户名/dlskill -g --all
 ```
 
-**四大传播框架：**
+> 把 `你的用户名` 换成实际 GitHub 用户名。`-g` 全局安装，`--all` 装到所有 AI 工具并跳过确认。
+
+安装后新开一轮对话，发送 `/dlskill` 或直接说「用 dlskill 写条口播」即可触发。
+
+## 手动安装
+
+1. 下载本仓库
+2. 把整个文件夹（含 `SKILL.md`）放到对应工具的技能目录：
+   - WorkBuddy：`~/.workbuddy/skills/dlskill/`
+   - 通用：`~/.agents/skills/dlskill/`
+   - 豆包：`~/.super_doubao/super-doubao-runtime/workspace/.user_skills/dlskill/`
+3. 重启对话
+
+## 四大传播框架
 
 | 框架 | 适用场景 | 一句话特征 |
 |------|---------|-----------|
@@ -36,63 +37,26 @@ dlskill/
 | 五字爆款法 | 成长故事、IP 日更 | "我和你一样痛但我走出来了"（出爆款率最高） |
 | P-STAR | 人物故事、借事说理 | "你先别划走，这个人这件事跟你有关" |
 
-## 安装方法
-
-### 方法一：让 AI 自动安装（推荐，不懂技术也能用）
-
-把下面这段话**完整复制**发给豆包 AI，它会自动下载安装：
-
-```
-帮我安装一个豆包技能 DLSkill：从这个地址下载压缩包 https://github.com/你的用户名/dlskill/releases/latest/download/dlskill.zip ，解压后找到 dlskill/ 文件夹，把它整个复制到我的用户技能目录 .user_skills/ 下（通常在 ~/.super_doubao/super-doubao-runtime/workspace/.user_skills/，目录不存在就创建），最后验证 SKILL.md 存在并告诉我安装成功。
-```
-
-> 注意：把上面链接里的 `你的用户名` 换成实际的 GitHub 用户名和仓库名。
-
-### 方法二：脚本一键安装（macOS / Linux）
-
-下载本仓库后，在终端运行：
-
-```bash
-bash install.sh
-```
-
-脚本会自动下载、解压、放到正确目录。
-
-### 方法三：手动安装
-
-1. 下载本仓库，找到 `dlskill/` 文件夹
-2. 把整个 `dlskill/` 文件夹复制到豆包的用户技能目录：
-   - **macOS / Linux**：`~/.super_doubao/super-doubao-runtime/workspace/.user_skills/`
-   - **Windows**：`%USERPROFILE%\.super_doubao\super-doubao-runtime\workspace\.user_skills\`
-   - 如果 `.user_skills` 目录不存在，手动创建即可
-3. 重启或新开一个对话，技能会自动加载
-
-安装后目录结构应为：
-```
-.user_skills/
-└── dlskill/
-    ├── SKILL.md
-    └── references/
-```
-
-### 验证安装
-
-直接对 AI 说："用 DLSkill 帮我写条口播" 或 "DLSkill 到哪一步了"，能触发即安装成功。
-
 ## 使用方法
 
-直接把你的想法或素材丢给 AI，例如：
+直接把想法丢给 AI：
 
 - "我有个想法：创业和打工不一样，帮我写条口播"
 - "这段文案帮我磨一下开头：[粘贴文案]"
 - "用五字法写一条关于焦虑的日更稿"
 - "帮我诊断这段逐字稿的问题"
 
-AI 会按 6 步流程处理：找真意核 → 匹配情绪扣 → 选框架 → 搭结构填内容 → 语言翻译 → 五查三开关。
+AI 会按 6 步处理：找真意核 → 匹配情绪扣 → 选框架 → 搭结构填内容 → 语言翻译 → 五查三开关。
 
-## 迭代
+## 仓库结构
 
-这个 skill 是活的。每次刷到爆款视频、磨出好稿，就拆结构、提方法、更新版本。欢迎 fork 后按自己的表达习惯改造。
+```
+├── SKILL.md              核心流程 + 框架选择（6步法）
+└── references/
+    ├── frameworks.md     四大框架详解
+    ├── language.md       语言手册（五查/三开关/反黑话/替换表）
+    └── checklist.md      成稿质量检查清单
+```
 
 ## 许可
 
