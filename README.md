@@ -15,7 +15,7 @@ dlskill 是一套自媒体内容创作 AI 技能：丢给它一个模糊想法�
 npx -y skills add 你的用户名/dlskill -g --all
 ```
 
-> 把 `你的用户名` 换成实际 GitHub 用户名。`-g` 全局安装，`--all` 装到所有 AI 工具并跳过确认。
+> 把 `donlin8964` 换成实际 GitHub 用户名。`-g` 全局安装，`--all` 装到所有 AI 工具并跳过确认。
 
 安装后新开一轮对话，发送 `/dlskill` 或直接说「用 dlskill 写条口播」即可触发。
 
