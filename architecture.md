@@ -4,12 +4,6 @@
 
 东临内容创作方法论的 AI Skill 实现。专注自媒体内容创作垂直领域：写稿、磨稿、诊断、选题、平台适配。
 
-## 对标项目
-
-[dontbesilent2025/dbskill](https://github.com/dontbesilent2025/dbskill) —— 商业诊断工具箱，v2.18+，30个独立 skill。
-
-本项目工程化体系全面对标 dbskill，但领域聚焦在内容创作。
-
 ## 当前架构（v0.x —— 单 skill 阶段）
 
 所有能力封装在一个 `dlskill` skill 中，通过 `references/` 下的模块化文件组织：
